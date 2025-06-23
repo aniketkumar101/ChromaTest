@@ -65,19 +65,18 @@ Then run on eclipse server
 
 ## Tools
 
-1)	Eclipse
-2)	Oracle
-3)	Apache Tomcat
+1)	Intellij & VS code
+2)	HTML
+3)	CSS
 4)	HTML
-5)	CSS
-6)	Java Script
-7)	JSP
-8)	SQL
+5)	Java Script
+6)	Python
+7)	MongoDB
 
 
 ## Conlusion
 
-In conclusion, ChromaTest, a groundbreaking web application, addresses color vision deficiencies through an advanced color vision test, personalized recommendations, and educational content. Developed with HTML5, CSS, JS, and JSP, it prioritizes accuracy with advanced algorithms and offers practical solutions like personalized suggestions for adaptive tools. ChromaTest not only empowers users but also contributes to societal awareness and inclusivity.
+In conclusion, ChromaTest, a groundbreaking web application, addresses color vision deficiencies through an advanced color vision test, personalized recommendations, and educational content. Developed with HTML5, CSS, JS, it prioritizes accuracy with advanced algorithms and offers practical solutions like personalized suggestions for adaptive tools. ChromaTest not only empowers users but also contributes to societal awareness and inclusivity.
 
 The user-centric approach is evident in its creative and intuitive UI/UX design, ensuring accessibility across devices. Continuous improvement is emphasized, with user feedback driving adaptability to dynamic challenges. Ethical considerations are central, with a commitment to user privacy through secure data practices.
 
