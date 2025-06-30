@@ -1,0 +1,41 @@
+{
+    "userdata": 
+    [
+      {
+        "name": "RAHUL KUMAR",
+        "email": "roy705051@gmail.com",
+        "mob": "906073384",
+        "gender": "male",
+        "dob": "2002-02-24",
+        "password": "123456",
+        "id": 1
+      },
+      {
+        "name": "shubham singh",
+        "email": "kshubham329@gmail.com",
+        "mob": "7004410059",
+        "gender": "male",
+        "dob": "2003-07-26",
+        "password": "123abc",
+        "id": 2
+      },
+      {
+        "name": "Sharun sir",
+        "email": "sharun123@gmail.com",
+        "mob": "3216165",
+        "gender": "male",
+        "dob": "2003-07-26",
+        "password": "123456",
+        "id": 3
+      },
+      {
+        "name": "ANIKET KUMAR",
+        "email": "aniket.787068@gmail.com",
+        "mob": "9060027191",
+        "gender": "male",
+        "dob": "2003-07-26",
+        "password": "12345",
+        "id": 4
+      }
+    ]
+}
