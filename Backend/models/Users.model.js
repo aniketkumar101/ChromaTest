@@ -9,11 +9,11 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    password: {
+    number: {
         type: String,
         required: true
     },
-    role: {
+    password: {
         type: String,
         required: true
     }
