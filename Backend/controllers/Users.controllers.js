@@ -1,89 +1,93 @@
 const User = require('../model/Users.model');
-
-const { body, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require("bcryptjs");
-const jwt  = require("jsonwebtoken");
-const jwtSecret = "ldklkfkldlfldlfldfldlfdjfdfj"
+const jwt = require("jsonwebtoken");
 
-const validateEmail = (email) => {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
+const jwtSecret = "ldklkfkldlfldlfldfldlfdjfdfj";
+
+// ==============================
+// CREATE USER
+// ==============================
+const createuser = async (req, res) => {
+    try {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { name, email, password } = req.body;
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: "Email already exists, please try another" });
+        }
+
+        // Hash the password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Create new user
+        const newUser = new User({
+            name,
+            email,
+            password: hashedPassword
+        });
+
+        await newUser.save();
+        res.json({ message: "User created successfully", user: newUser });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Server error" });
+    }
 };
 
-const createUser = async (req, res) => {
-    try{
-        const userdetails = new User(req.body)
-
-        const error = validationResult(req)
-
-        if(!error.isEmpty()){
-            return res.status(400).json({error: error.array()})
-        }
-
-        if(userdetails.password.length < 6){
-            return res.status(400).json({error: "Password must be at least 6 characters long"})
-        }
-        if(!validateEmail(userdetails.email)){
-            return res.status(400).json({error: "Email is not valid"})
-        }
-
-        const existingUser = await User.findOne({ email: userdetails.email });
-        if (existingUser) {
-            return res.status(400).json({ error: "Email already exists please try another" });
-        }
-
-        const salt = await bcrypt.genSalt(10)
-
-        userdetails.password = await bcrypt.hash(userdetails.password,salt)
-
-        
-        await userdetails.save()
-
-        res.json({message:"success",userdetails})
-
-    }
-    catch(err){
-        res.status(500).json(err)
-    }
-}
-
-
+// ==============================
+// LOGIN USER
+// ==============================
 const loginuser = async (req, res) => {
-    try{
-        const email = req.body.email
-        const password = req.body.password
-
-        const error = validationResult(req)
-
-        if(!error.isEmpty()){
-            return res.status(400).json({error: error.array()})
+    try {
+        // Validate request body
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
 
-        if(!validateEmail(email)){
-            return res.status(400).json({error: "Email is not valid"})
+        const { email, password } = req.body;
+
+        // Check if user exists
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ error: "User not found" });
         }
-        
-        let userdata = await User.findOne({ email })
-        if(!userdata){
-            return res.status(400).json({error: "User not found"})
+
+        // Compare password using bcrypt
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ error: "Password is incorrect" });
         }
-        const ismatch = await bcrypt.compare(password, userdata.password)
-        if(!ismatch){
-            return res.status(400).json({error: "Password is incorrect"})
-        }
-        const data = {
-            user:{
-                id:userdata.id
+
+        // Generate JWT token
+        const payload = {
+            user: {
+                id: user._id
             }
-        }
-        const token = jwt.sign(data,jwtSecret,{expiresIn: 3600})
-        return res.json({success:true,authToken:token})
+        };
+        const authToken = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
+
+        res.status(200).json({ success: true, authToken });
+
+    } catch (err) {
+        console.error("Login Error:", err);
+        res.status(500).json({ error: "Server error" });
     }
-    catch(err){
-        res.status(500).json(err)
-    }
-}
+};
+
+
+
 module.exports = {
-    createUser,
+    createuser,
     loginuser
-}
+};

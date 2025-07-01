@@ -1,9 +1,26 @@
 const express = require('express');
 const router = express.Router();
+const { body } = require('express-validator');
+const UserDetails = require('../controllers/Users.controllers');
 
-const UserDetails = require('../controllers/Users.controllers')
+router.post(
+  '/createuser',
+  [
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'Password must be at least 6 characters').isLength({ min: 6 }),
+    body('name', 'Name is required').notEmpty()
+  ],
+  UserDetails.createuser
+);
 
-router.post('/createuser',UserDetails.createUser);
-router.post('/login',UserDetails.loginuser);
+router.post(
+  '/login',
+  [
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'Password is required').exists()
+  ],
+  UserDetails.loginuser
+);
 
-module.exports = router
+module.exports = router;
+
