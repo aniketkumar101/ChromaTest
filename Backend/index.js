@@ -36,7 +36,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Serve static frontend files from the "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.use('/users', User);
 

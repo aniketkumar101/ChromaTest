@@ -9,40 +9,35 @@ const jwtSecret = "ldklkfkldlfldlfldfldlfdjfdfj";
 // CREATE USER
 // ==============================
 const createuser = async (req, res) => {
-    try {
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
-        const { name, email, password } = req.body;
-
-        // Check if user already exists
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return res.status(400).json({ error: "Email already exists, please try another" });
-        }
-
-        // Hash the password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        // Create new user
-        const newUser = new User({
-            name,
-            email,
-            password: hashedPassword
-        });
-
-        await newUser.save();
-        res.json({ message: "User created successfully", user: newUser });
-
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Server error" });
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ success: false, errors: errors.array() });
     }
+
+    const { name, email, password } = req.body;
+
+    // Check if user already exists
+    let user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ success: false, error: "User already exists" });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const securedPassword = await bcrypt.hash(password, salt);
+
+    user = await User.create({ name, email, password: securedPassword });
+
+    const data = { user: { id: user.id } };
+    const authToken = jwt.sign(data, jwtSecret, { expiresIn: '1h' });
+
+    res.status(201).json({ success: true, message: "success", authToken });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
 };
+
 
 // ==============================
 // LOGIN USER

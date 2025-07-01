@@ -159,7 +159,7 @@
 
                                 <script>
                                     document.getElementById("signup-form").addEventListener("submit", async function (e) {
-                                        e.preventDefault(); // prevent normal form submit
+                                        e.preventDefault();
 
                                         const name = document.getElementById("name-register").value;
                                         const email = document.getElementById("email-register").value;
@@ -173,15 +173,17 @@
                                             body: JSON.stringify({ name, email, password })
                                         });
 
-                                        // const result = await response.json();
-                                        // console.log(result);
+                                        const result = await response.json();
+                                        //console.log(result);
 
-                                        if (result.message === "success" || result.success) {
+                                        if (result.success || result.message === "success") {
                                             alert("Signup successful");
-                                            window.location.href = "logined.html";
+                                            window.location.href = "http://localhost:5000/logined.html";
                                         } else {
-                                            alert("Signup failed: " + JSON.stringify(result.error || result.errors));
+                                            const errorMsg = result.error || (result.errors && result.errors[0]?.msg) || "Unknown error";
+                                            alert("Signup failed: " + errorMsg);
                                         }
+
                                     });
                                 </script>
                             </div>
