@@ -178,6 +178,7 @@
 
                                         if (result.message === "success" || result.success) {
                                             alert("Signup successful");
+                                            window.location.href = "logined.html";
                                         } else {
                                             alert("Signup failed: " + JSON.stringify(result.error || result.errors));
                                         }
