@@ -1,18 +1,20 @@
 const mongoose = require('mongoose');
 
-async function dbconnect() {
-    const DBURL = "mongodb://127.0.0.1:27017";  // <-- Local MongoDB connection string
-    const DBNAME = "ChromaTest";  // Your database name
 
+require('dotenv').config();
+
+const DBURL = process.env.MONGO_URI;
+const DBNAME = process.env.MONGO_DB;
+
+async function dbconnect() {
     try {
-        await mongoose.connect(`${DBURL}/${DBNAME}`, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log("Local DB Connected");
+        await mongoose.connect(`${DBURL}/${DBNAME}`);
+        console.log("✅ MongoDB Atlas Connected");
     } catch (error) {
-        console.log("Connection Error:", error);
+        console.error("❌ MongoDB Connection Error:", error);
     }
 }
 
 module.exports = dbconnect;
+
+
