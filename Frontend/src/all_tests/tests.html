@@ -96,7 +96,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
         <a href="main-test-page.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>PrismLens</h1>
+            <h1 class="m-0 text-primary"><i class="far fa-hospital me-3"></i>ChromoTest</h1>
         </a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
     </nav>
@@ -202,20 +202,17 @@
     </div>
     <!-- Footer End -->
 
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script>
         function checkColorBlindness() {
-            // Add your color blindness test logic here
             console.log("Checking color blindness...");
-            window.location.href = "./color-blindness-test.html";
+            //window.location.href = "./color-blindness-test.html"; // same tab
+            window.open("./color-blindness-test.html", "_blank"); // different tab
         }
 
         function checkVision() {
-            // Add your vision test logic here
             console.log("Checking vision...");
-            window.location.href = "./instruction.html";
+            //window.location.href = "./instruction.html"; // same tab
+            window.open("./vision-test.html", "_blank"); // differnet tab
         }
 
     </script>
