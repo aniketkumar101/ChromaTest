@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
-const UserDetails = require('../controllers/Users.controllers');
+const UserDetails = require('../controller/users.controller');
 
 router.post(
   '/createuser',

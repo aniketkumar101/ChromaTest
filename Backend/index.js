@@ -3,7 +3,9 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-const User = require('./route/Users');
+const user = require('./route/users');
+const colorgaptest = require('./route/colorgaptest');
+
 const dbconnect = require('./db/db');
 
 dbconnect();
@@ -17,10 +19,12 @@ app.use(express.json());
 // ✅ Serve static frontend files from the "public" folder
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.use('/users', User);
+app.use('/users', user);
+app.use("/api/colorgaptest", colorgaptest); 
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
 
 

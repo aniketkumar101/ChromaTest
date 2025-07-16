@@ -374,13 +374,50 @@
       wrongClicksElement.textContent = "Wrong Clicks: " + wrongClicks;
     }
 
-    function testhandle() {
-      window.location.href = "number-test.html";
-    }
-
     function skip_test() {
       window.location.href = "number-test.html";
     }
+
+    // function testhandle() {
+    //   window.location.href = "number-test.html";
+    // }
+
+
+
+    function testhandle() {
+  // Prepare data
+  const resultData = {
+    testType: "ColorGapTest", // updated test type label
+    correct: score + 3,
+    total: 24,
+    percentage: ((score + 3) * 100) / 24,
+    result: count >= 70 ? "PASS" : "FAIL",
+    timestamp: new Date().toISOString()
+  };
+
+  // Send data to backend using fetch
+  fetch("http://localhost:5000/api/colorgaptest/save", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(resultData)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log("✅ Result saved:", data);
+      window.location.href = "number-test.html"; // continue to next test
+    })
+    .catch(error => {
+      console.error("❌ Error saving result:", error);
+      alert("Failed to save result");
+      window.location.href = "number-test.html";
+    });
+}
+
+
+
+
   </script>
 </body>
 
