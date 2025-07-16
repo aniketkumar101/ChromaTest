@@ -72,7 +72,7 @@ Clone this repository by running `https://github.com/aniketkumar101/ChromaTest.g
 
 ## Conlusion
 
-In conclusion, ChromaTest, a groundbreaking web application, addresses color vision deficiencies through an advanced color vision test, personalized recommendations, and educational content. Developed with HTML5, CSS, JS, and JSP, it prioritizes accuracy with advanced algorithms and offers practical solutions like personalized suggestions for adaptive tools. ChromaTest not only empowers users but also contributes to societal awareness and inclusivity.
+In conclusion, ChromaTest, a groundbreaking web application, addresses color vision deficiencies through an advanced color vision test, personalized recommendations, and educational content. Developed with HTML, CSS, JavaScript, Node.js, Express.js and MongoDB it prioritizes accuracy with advanced algorithms and offers practical solutions like personalized suggestions for adaptive tools. ChromaTest not only empowers users but also contributes to societal awareness and inclusivity.
 
 The user-centric approach is evident in its creative and intuitive UI/UX design, ensuring accessibility across devices. Continuous improvement is emphasized, with user feedback driving adaptability to dynamic challenges. Ethical considerations are central, with a commitment to user privacy through secure data practices.
 
