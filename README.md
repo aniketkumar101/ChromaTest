@@ -57,10 +57,7 @@ Our siite offers a range of features:
 
 To view the ChromaTest website locally on your machine:
 
-Clone this repository by running `git clone https://github.com/razzivofficial/ChromaTest`
-
-Then run on eclipse server
-
+Clone this repository by running `https://github.com/aniketkumar101/ChromaTest.git`
 
 ## Tools
 
