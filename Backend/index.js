@@ -3,8 +3,10 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-const user = require('./route/users');
-const colorgaptest = require('./route/colorgaptest');
+const user = require('./route/users.route');
+const colorgaptest = require('./route/colorgaptest.route');
+const numbertest = require('./route/numbertest.route');
+
 
 const dbconnect = require('./db/db');
 
@@ -20,7 +22,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.use('/users', user);
-app.use("/api/colorgaptest", colorgaptest); 
+app.use('/api/colorgaptest', colorgaptest); 
+app.use('/api/numbertest', numbertest);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

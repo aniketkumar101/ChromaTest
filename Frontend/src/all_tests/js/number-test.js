@@ -55,6 +55,29 @@ function showPlate() {
   setTimeout(displayStuff, 300);
 }
 
+// function showResult() {
+//   $k("#button").css("display", "inline-block");
+//   $k("#input").css("display", "none");
+//   $k("#show").css("display", "none");
+
+//   active = false;
+//   answer = $k("#userAnswer")[0].innerText = $k("#input")[0].value;
+//   $k("#rightAnswer")[0].innerText = values[plate];
+//   if (answer === "" || answer == 0) {
+//     answer = 0;
+//   }
+//   if (answer == values[plate]) {
+//     $k("#answer")[0].className = "right";
+//     good++;
+//   } else {
+//     $k("#answer")[0].className = "wrong";
+//   }
+//   all++;
+//   $k("#noGood")[0].innerText = good;
+//   $k("#noTotal")[0].innerText = all;
+//   $k("#noPercent")[0].innerText = Math.round((100 * good) / all);
+// }
+
 function showResult() {
   $k("#button").css("display", "inline-block");
   $k("#input").css("display", "none");
@@ -63,20 +86,49 @@ function showResult() {
   active = false;
   answer = $k("#userAnswer")[0].innerText = $k("#input")[0].value;
   $k("#rightAnswer")[0].innerText = values[plate];
+  
   if (answer === "" || answer == 0) {
     answer = 0;
   }
+
+  let result = "Incorrect";
   if (answer == values[plate]) {
     $k("#answer")[0].className = "right";
     good++;
+    result = "Correct";
   } else {
     $k("#answer")[0].className = "wrong";
   }
+
   all++;
   $k("#noGood")[0].innerText = good;
   $k("#noTotal")[0].innerText = all;
   $k("#noPercent")[0].innerText = Math.round((100 * good) / all);
+
+  // ✅ Send to backend
+  const correctAnswer = values[plate].toString();
+  const userAnswer = answer.toString();
+
+  fetch('http://localhost:5000/api/numbertest/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ correctAnswer, userAnswer })
+  })
+  .then(res => res.json())
+  .then(data => console.log("Saved:", data))
+  .catch(err => console.error("Failed to save result:", err));
 }
+
+
+
+
+
+
+
+
+
 
 $k("#button").on(
   "click",
@@ -122,7 +174,7 @@ $k(window).on(
       if (count == 10) {
         setTimeout(() => {
           alert("Number test completed! Your score : " + good);
-          window.location.href = "./hello.html";
+          window.location.href = "../../../logined.html";
         }, 1000);
       }
 
@@ -143,5 +195,6 @@ showPlate();
 
 function skip_page() {
 	alert("Number test completed! Your score : " + good);
-  	window.location.href = "./hello.html";
+  	window.location.href = "../../../logined.html";
 }
+
