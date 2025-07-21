@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./resources/Logo/favicon-32x32.png" />
     <!-- styesheet css -->
     <link rel="stylesheet" href="./src/css/style.css" />
-    <link rel="stylesheet" href="./src/css/style.css" />
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/ddac256733.js" crossorigin="anonymous"></script>
     <!-- bootstrap css -->
@@ -19,6 +18,12 @@
     <!-- chatbot -->
     <link rel="stylesheet" href="src/css/chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="./src/all_tests/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="./src/all_tests/css/style.css" rel="stylesheet">
 
     <title>ChromaTest</title>
 </head>
@@ -58,11 +63,10 @@
             <div class="start">
                 <img src="./resources/Logo/logo.png" class="logo" />
             </div>
-            <div class="search-bar">
+            <!-- <div class="search-bar">
                 <input type="text" class="search-input" placeholder="What are you looking for .....">
                 <i class="fa-solid fa-magnifying-glass fa-sm" id="search-icon"></i>
-                <!-- <i class="fa-solid fa-microphone-slash fa-sm" id="mic-icon"></i> -->
-            </div>
+            </div> -->
             <div class="end">
                 <nav>
                     <ul id="card">
@@ -115,7 +119,8 @@
                                             // Optionally store token: localStorage.setItem('token', result.authToken);
 
                                             // ✅ Redirect to logined.html
-                                            window.location.href = "http://localhost:5000/logined.html";
+                                            //window.location.href = "http://localhost:5000/logined.html";
+                                            window.location.href = "http://localhost:5000/src/all_tests/main-test-page.html";
                                         } else {
                                             alert("Login failed: " + (result.error || JSON.stringify(result.errors)));
                                         }
@@ -178,7 +183,9 @@
 
                                         if (result.success || result.message === "success") {
                                             alert("Signup successful");
-                                            window.location.href = "http://localhost:5000/logined.html";
+                                            //window.location.href = "http://localhost:5000/logined.html";
+                                            window.location.href = "http://localhost:5000/src/all_tests/main-test-page.html";
+
                                         } else {
                                             const errorMsg = result.error || (result.errors && result.errors[0]?.msg) || "Unknown error";
                                             alert("Signup failed: " + errorMsg);
@@ -265,10 +272,9 @@
                 </ul>
             </div>
             <div class="right">
-                <a href="http://127.0.0.1:5000/"><button class="btn btn1" id="firstbtn">3D
-                        TRY</button></a>
+                <a href="http://127.0.0.1:5000/"><button class="btn btn1" id="firstbtn">3D TRY</button></a>
                 <a href="./src/all_tests/main-test-page.html"><button class="btn btn2" id="secondbtn">TEST</button></a>
-                <button class="btn btn3" id="thirdbtn">GOLD</button>
+                <button class="btn btn3" id="thirdbtn">CHROMA ELITE</button>
             </div>
         </div>
 
@@ -330,147 +336,144 @@
     <!-- CHATBOT  ENDED-->
 
 
-    <!-- slider section started by tushar -->
-    <div class="slider-body">
-        <div class="top">
-            <div><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/nov23/eyeconic/Home-Web-hero-banner.gif" alt="">
-            </div>
-        </div>
 
-        <div class="slider-container">
 
+
+
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column">
+                        <img class="img-fluid rounded w-75 align-self-end" src="./resources/img/about-12.jpg" alt="">
+                        <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="./resources/img/about-21.jpg" alt=""
+                            style="margin-top: -25%;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <p class="d-inline-block border rounded-pill py-1 px-4" style="color: black;">About Us</p>
+                    <h1 class="mb-4" style="color: black;">Why You Should Trust Us? Get Know About Us!</h1>
+                    <p style="color: black;">Trust ChromaTest for a vibrant world of color vision solutions. We're not
+                        just a product; we're
+                        your partner in embracing accessibility and inclusivity.</p>
+                    <p class="mb-4" style="color: black;">Where Trust Meets Technicolor! Unleash the power of
+                        personalized color solutions
+                        with our innovative, user-centric approach. Trust us for a kaleidoscopic adventure into
+                        accessibility,
+                        education, and a world of vivid possibilities!
+                    </p>
+                    <p style="color: black;"><i class="far fa-check-circle text-primary me-3"></i>Your go-to solution
+                        for color vision
+                        deficiencies.</p>
+                    <p style="color: black;"><i class="far fa-check-circle text-primary me-3"></i>Best frame suggestions
+                        with help of AI/ML
+                    </p>
+                    <p style="color: black;"><i class="far fa-check-circle text-primary me-3"></i>Test Eye Powers in
+                        comfort of your home</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+                </div>
+            </div>
         </div>
-        <div class="slider">
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/oct23/web/artisinal.jpg" alt="img"></div>
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/oct23/web/maverick.gif" alt="img"></div>
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/sep22/nature-pro/web.jpg" alt="img"></div>
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/Dec22/new-collection/desktop.gif" alt="img">
-            </div>
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/Nov22/LK-Airflex-desktop-banner.gif" alt="img">
-            </div>
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/oct9/Electro-punk/web.gif" alt="img"></div>
-            <div class="slide"><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/oct9/holiday-edit/Desktop.jpg" alt="img">
-            </div>
-        </div>
-        <!-- <div class="arrow left" onclick="prevSlide()">&#9665;</div>
-    <div class="arrow right" onclick="nextSlide()">&#9655;</div> -->
     </div>
+    <!-- About End -->
 
-    <div class="bottom">
-        <div><img class="img-slider" src="https://static1.lenskart.com/media/desktop/img/Apr22/Bannerforexport.jpg"
-                alt="">
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp text-dark" data-wow-delay="0.1s"
+                style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4 text-dark">Services</p>
+                <h1 class="text-dark">Health Care Solutions</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-light rounded h-100 p-5 text-dark">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 65px; height: 65px;">
+                            <i class="fa fa-smile text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3 text-dark">Frame Detection Magic with AI</h4>
+                        <p class="mb-4 text-dark">Experience the wizardry of frame detection powered by Artificial
+                            Intelligence and Machine Learning. Our technology goes beyond style, finding the perfect
+                            frames that match your personality and preferences.</p>
+                        <a class="btn text-dark" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded h-100 p-5 text-dark">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 65px; height: 65px;">
+                            <i class="fa fa-rainbow text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3 text-dark">Precision Color Blindness Test</h4>
+                        <p class="mb-4 text-dark">Dive deep into the precision of our color blindness test. Uncover the
+                            specifics of your condition with accuracy and clarity, guiding you toward personalized
+                            solutions.</p>
+                        <a class="btn text-dark" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-light rounded h-100 p-5 text-dark">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 65px; height: 65px;">
+                            <i class="fa fa-eye text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3 text-dark">Color Vision Test Adventure</h4>
+                        <p class="mb-4 text-dark">Embark on a captivating color vision test that feels more like a
+                            thrilling quest. Explore tasks designed for enjoyment while uncovering the mysteries of your
+                            color perception.</p>
+                        <a class="btn text-dark" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-light rounded h-100 p-5 text-dark">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 65px; height: 65px;">
+                            <i class="fa fa-link text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3 text-dark">ChatBot - Color Enthusiast Community</h4>
+                        <p class="mb-4 text-dark">Join our vibrant ChromaChat community, connecting with fellow color
+                            enthusiasts. Share experiences, get advice, and immerse yourself in a colorful world where
+                            everyone sees eye to eye, literally!</p>
+                        <a class="btn text-dark" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded h-100 p-5 text-dark">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 65px; height: 65px;">
+                            <i class="fa fa-phone text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3 text-dark">24/7 Support & Colorful Customer Care</h4>
+                        <p class="mb-4 text-dark">Enjoy round-the-clock support from our Colorful Customer Care team.
+                            Whether you have questions about our tests or need assistance choosing the right frames,
+                            we're here to add a splash of color to your customer experience.</p>
+                        <a class="btn text-dark" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-light rounded h-100 p-5 text-dark">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 65px; height: 65px;">
+                            <i class="fa fa-mobile text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3 text-dark">ChromaTest Mobile App</h4>
+                        <p class="mb-4 text-dark">Take the world of ChromaTest on the go with our mobile app. Access
+                            color vision tests, receive real-time frame suggestions, and stay connected to the colorful
+                            ChromaTest community, all from the palm of your hand.</p>
+                        <a class="btn text-dark" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="ttttx">
-        <center>
-            <h3 class="ttx">WEAR THE TREND</h3>
-        </center>
-        <div class="lower">
-            <div class="l1">
-                <div class="glass-box"><img class="img-slider"
-                        src="https://static1.lenskart.com/media/desktop/img/Sep21/image179.png" alt=""></div>
-                <div class="l2"><button class="bttn-1" onclick="openPopup()">Explore</button></div>
-            </div>
-            <div class="l1">
-                <div class="glass-box"><img class="img-slider"
-                        src="https://static1.lenskart.com/media/desktop/img/Sep21/trans.jpg" alt=""></div>
-                <div class="l2"><button class="bttn-1" onclick="openPopup()">Explore</button></div>
-            </div>
-            <div class="l1">
-                <div class="glass-box"><img class="img-slider"
-                        src="https://static1.lenskart.com/media/desktop/img/Sep21/clubmaster.jpg" alt=""></div>
-                <div class="l2"><button class="bttn-1" onclick="openPopup()">Explore</button></div>
-            </div>
-            <div class="l1">
-                <div class="glass-box"><img class="img-slider"
-                        src="https://static1.lenskart.com/media/desktop/img/Sep21/cateeye.jpg" alt=""></div>
-                <div class="l2"><button class="bttn-1" onclick="openPopup()">Explore</button></div>
-            </div>
-        </div>
+    <!-- Service End -->
 
 
-
-        <div class="middle-lower">
-            <div class="ttttx">
-                <center>
-                    <h3 class="ttx">PREMIUM EYEWEAR</h3>
-                </center>
-            </div>
-
-            <div><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/oct23/home/13-10-23/As%20seen%20on%20Desk.jpg"
-                    alt=""></div>
-        </div>
-
-        <div class="middle-lower">
-            <div class="ttttx">
-                <center>
-                    <h3 class="ttx">AS SEEN ON MOUNI ROY</h3>
-                </center>
-            </div>
-
-            <div><img class="img-slider" src="https://static1.lenskart.com/media/desktop/img/23may/cannes/web.gif"
-                    alt=""></div>
-        </div>
-
-        <div class="middle-lower">
-            <div class="ttttx">
-                <center>
-                    <h3 class="ttx">AS SEEN ON SHARK TANK</h3>
-                </center>
-            </div>
-
-            <div><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/Dec22/1-Dec/Homepage-Banner-web.gif" alt="">
-            </div>
-        </div>
-
-        <div class="middle-lower">
-            <div class="ttttx">
-                <center>
-                    <h3 class="ttx">AS SEEN ON KARAN JOHAR</h3>
-                </center>
-            </div>
-
-            <div><img class="img-slider" src="https://static1.lenskart.com/media/desktop/img/Dec22/Web_banner.gif"
-                    alt=""></div>
-        </div>
-
-        <div class="middle-lower">
-            <div class="ttttx">
-                <center>
-                    <h3 class="ttx">TRENDING SUNGLASSES</h3>
-                </center>
-            </div>
-
-            <div><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/Jan23/sunglasses/Sun-Banner-web.gif" alt="">
-            </div>
-        </div>
-
-        <div class="middle-lower">
-            <div class="ttttx">
-                <center>
-                    <h3 class="ttx">AQUACOLOR - GLAM UP WITH COLOR LENSES</h3>
-                </center>
-            </div>
-
-            <div><img class="img-slider"
-                    src="https://static1.lenskart.com/media/desktop/img/Oct22/kiara/Refresh-Banner-Web.gif" alt="">
-            </div>
-        </div>
-
-
-
-    </div>
 
 
 
@@ -508,7 +511,7 @@
                 <div class="col-md-12 col-lg-4">
                     <div class="dk-footer-box-info">
                         <!-- <a href="index.html" class="footer-logo">
-                            <img src="./resources/Logo/PrismLensLogo.png" alt="footer_logo" class="img-fluid">
+                            <img src="./resources/Logo/ChromaTestLogo.png" alt="footer_logo" class="img-fluid">
                         </a> -->
                         <p class="footer-info-text">
                             Where color meets clarity! Unleash a spectrum of personalized solutions for color vision
@@ -667,7 +670,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <span>Copyright © 2024, All Right Reserved by PrismLens</span>
+                        <span>Copyright © 2024, All Right Reserved by ChromaTest</span>
                     </div>
                     <!-- End Col -->
                     <div class="col-md-6">
